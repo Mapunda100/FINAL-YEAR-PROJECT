@@ -2,9 +2,13 @@ import AuthCheck from "../Pages/Authentication/AuthCheck";
 // import Login from "../Pages/Authentication/Login";
 // import Register from "../Pages/Authentication/Register";
 import Dashboard from "../Pages/Dasboard";
+import Register from "../Pages/Register/";
+import RegisterBirth from "../Pages/Register/Birth";
+// import Birthinfo from "../Pages/Register/Birth/Birthinfo";
+// import Personinfo from "../Pages/Register/Birth/Personinfo";
+// import Parentinfo from "../Pages/Register/Birth/Parentinfo";
+// import Requests from "../Pages/Birth";
 // import Payments from "../Pages/Payments";
-import Register from "../Pages/Register";
-import Births from "../Pages/Register/Birth";
 // import Requests from "../Pages/Requests";
 // import NewRequest from "../Pages/Requests/NewRequest";
 // import RequestProfile from "../Pages/Requests/RequestProfile";
@@ -24,7 +28,7 @@ const routes = [
     {
         name: 'Register',
         component: Register,
-        url: '/register',
+        url: '/register/personalinfo',
         icon: 'circle-08',
         comments: 'Register endpoint',
         color: 'red',
@@ -33,7 +37,7 @@ const routes = [
     },
     {
         name: 'Register Birth',
-        component: Births,
+        component: RegisterBirth,
         url: '/register/birth',
         icon: 'circle-08',
         comments: 'Register Birth endpoint',
@@ -41,6 +45,16 @@ const routes = [
         sidebar: false,
         roles: ['3', '2', '1']
     },
+    // {
+    //     name: 'Register Birth',
+    //     component: Parentinfo ,
+    //     url: '/register/Parentinfo',
+    //     icon: 'circle-08',
+    //     comments: 'Register Birth endpoint',
+    //     color: 'red',
+    //     sidebar: false,
+    //     roles: ['3', '2', '1']
+    // },
     // {
     //     name: 'Users',
     //     component: Users,
