@@ -74,24 +74,20 @@ export default function Dashboard() {
                                 </div>
                             </div>
                             <div className="card-body">
-                                card body
+                                <h3>CIVIL REGISTRATION AND VITAL STATISTIC SYSTEM (CVRS) Is the system that used in civil registration
+                                 including registration of vital STATISTIC
+                                </h3>
+
+                                <h3>Registration in this system includes BIRTH REGISTRATION, DEATH REGISTRATION, AND MARRIAGE REGISTRATION</h3>
+
+
                                 {/* card body edit here */}
                             </div>
                         </div>
                     </div>
                     <div className="col-4">
                         <div className="card">
-                            <div className="card-header bg-default">
-                                <div className="row align-items-cente">
-                                    <div className="col">
-                                        <h5 className="h3 text-white mb-0 text-truncate">Last 10 Requests</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="card-body" style={{ maxHeight: '61vh', overflowY: 'auto' }}>
-                                card body
-                              {/* edit here */}
-                            </div>
+
                         </div>
                     </div>
                 </div>

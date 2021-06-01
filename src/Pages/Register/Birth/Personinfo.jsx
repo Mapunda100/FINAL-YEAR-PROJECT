@@ -37,67 +37,70 @@ export default function PersonalInformation({ setFormNumber, setPersonalInformat
 
     return (
         <div>
+            <div className="container-fluid mt-5">
 
-            <h2 style={{ textAlign: 'center' }}>Register person's information here</h2>
-            <div className='jumbotron pt-1 mt-2 ml-1 mr-5 text-white bg-success'>
-                <form onSubmit={sendpersoninfo} className='pt-4 pl-5'>
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="inputEmail">First Name:</label>
-                            <input ref={firstnameRef} type="text" class="form-control" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="inputPassword4">Middle Name:</label>
-                            <input ref={middlenameRef} type="text" class="form-control" id="inputPassword4" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="inputPassword4">Last Name:</label>
-                            <input ref={lastnameRef} class="form-control" id="inputPassword4" />
+                <div className="row">
+                    <div className="col">
+                        <div className="card">
+                            <div className="card-header bg-default">
+                                <h2 className='text-center text-white '>Register person's information here</h2>
+                            </div>
+                            <div className="card-body">
+                                <form onSubmit={sendpersoninfo} className=''>
+                                    <h3 className='text-uppercase'>Personal Informations</h3>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="inputEmail">First Name:</label>
+                                            <input ref={firstnameRef} type="text" class="form-control" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputPassword4">Middle Name:</label>
+                                            <input ref={middlenameRef} type="text" class="form-control" id="inputPassword4" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputPassword4">Last Name:</label>
+                                            <input ref={lastnameRef} class="form-control" id="inputPassword4" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputEmail">Gender/Sex:</label>
+                                            <input ref={genderRef} type="text" class="form-control" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputPassword4">Phone Number:</label>
+                                            <input ref={phonenumberRef} type="text" class="form-control" id="inputPassword4" />
+                                        </div>
+                                    </div>
+
+                                    <h3 className='text-uppercase'>Residence</h3>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="inputEmail">Country:</label>
+                                            <input ref={countryRef} type="text" class="form-control" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label >Region:</label>
+                                            <input ref={regionRef} type="text" class="form-control" id="inputPassword4" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputPassword4">District:</label>
+                                            <input ref={districtRef} class="form-control" id="inputPassword4" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputEmail">Ward:</label>
+                                            <input ref={wardRef} type="text" class="form-control" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputPassword4">Village/Street:</label>
+                                            <input ref={streetRef} type="text" class="form-control" id="inputPassword4" />
+                                        </div>
+                                    </div>
+                                    <button className='float-right btn btn-default px-5' type="submit">Next</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-
-
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="inputEmail">Gender/Sex:</label>
-                            <input ref={genderRef} type="text" class="form-control" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="inputPassword4">Phone Number:</label>
-                            <input ref={phonenumberRef} type="text" class="form-control" id="inputPassword4" />
-                        </div>
-
-
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="inputEmail">PLACE OF RESIDENCE::: Country:</label>
-                            <input ref={countryRef} type="text" class="form-control" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label >Region:</label>
-                            <input ref={regionRef} type="text" class="form-control" id="inputPassword4" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="inputPassword4">District:</label>
-                            <input ref={districtRef} class="form-control" id="inputPassword4" />
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="inputEmail">Ward:</label>
-                            <input ref={wardRef} type="text" class="form-control" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="inputPassword4">Village/Street:</label>
-                            <input ref={streetRef} type="text" class="form-control" id="inputPassword4" />
-                        </div>
-                    </div>
-
-                    <button className=' float-left btn btn-danger' type="submit">Next</button>
-                </form>
+                </div>
             </div>
         </div>
     )

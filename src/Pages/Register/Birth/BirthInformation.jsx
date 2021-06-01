@@ -30,7 +30,7 @@ export default function BirthInformation({ personalInformations }) {
         }
 
         console.log(personalInformations)
-        axios.post('http://localhost:3002/register', { personalInformations, birthinfo })
+        axios.post('http://localhost:8200/person/register', { personalInformations, birthinfo })
             .then(data => {
                 console.log(data)
             })
@@ -40,60 +40,65 @@ export default function BirthInformation({ personalInformations }) {
     }
 
     return (
-        <div className='ml-2 mr-3'>
-            <h2 className='mt-4 text-center'>Register person's Birth information here</h2>
-            <div className='jumbotron pt-1 mt-1 mr-5 text-white bg-success'>
-                <form onSubmit={sendbirthinfo} className='pt-4 pl-5'>
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="inputEmail">Date of birth:</label>
-                            <input ref={dateofbirthRef} type="date" class="form-control" />
+        <div className=''>
+            <div className="header bg-default pb-6">
+                <div className="container-fluid">
+                    <div className="header-body">
+                        <div className="row pt-5"></div>
+                    </div>
+                </div>
+            </div>
+            <div className="container-fluid mt--5">
+                <div className="row">
+                    <div className="col-9">
+                        <div className="card">
+                            <div className="card-header bg-default text-white h3">Register person's Birth information here</div>
+                            <div className="card-body">
+                                <form onSubmit={sendbirthinfo} className=''>
+                                    <h3 className='text-uppercase'>Birth Information</h3>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md-4">
+                                            <label for="inputEmail">Type of birth:</label>
+                                            <input ref={typeofbirthRef} type="text" class="form-control" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputEmail">Date of birth:</label>
+                                            <input ref={dateofbirthRef} type="date" class="form-control" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputEmail">Place of Birth</label>
+                                            <input ref={placeofbirthRef} type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <h3 className='text-uppercase'>PLACE OF BIRTH</h3>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="inputEmail">Country:</label>
+                                            <input ref={countryRef} type="dropdown" class="form-control" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label >Region:</label>
+                                            <input ref={regionRef} type="text" class="form-control" id="inputPassword4" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputPassword4">District:</label>
+                                            <input ref={districRef} class="form-control" id="inputPassword4" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputEmail">Ward:</label>
+                                            <input ref={wardRef} type="text" class="form-control" />
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputEmail">Village/street:</label>
+                                            <input ref={streetRef} type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <button className='float-right btn btn-default ' type="submit" >SUBMIT</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="form-row ">
-
-                        <div class="form-group col-md-3">
-                            <label for="inputEmail">Type of birth:</label>
-                            <input ref={typeofbirthRef} type="text" class="form-control" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="inputEmail">Place of Birth</label>
-                            <input ref={placeofbirthRef} type="text" class="form-control" />
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="inputEmail">PLACE OF RESIDENCE::: Country:</label>
-                            <input ref={countryRef} type="dropdown" class="form-control" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label >Region:</label>
-                            <input ref={regionRef} type="text" class="form-control" id="inputPassword4" />
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="inputPassword4">District:</label>
-                            <input ref={districRef} class="form-control" id="inputPassword4" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="inputEmail">Ward:</label>
-                            <input ref={wardRef} type="text" class="form-control" />
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="inputEmail">Village/street:</label>
-                            <input ref={streetRef} type="text" class="form-control" />
-                        </div>
-                    </div>
-
-                    <button className=' float-right btn btn-danger ' type="submit" >SUBMIT</button>
-                </form>
+                </div>
             </div>
         </div>
     )

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 // import menu, { misc as op } from './index'
 import menu, { misc } from '../routes'
 import logo from '../../assets/images/blue.png'
+import logos from '../../assets/images/Logo.png'
 import { AuthContext } from '../../Context/AuthContext'
 
 export default function Sidebar(props) {
@@ -14,7 +15,7 @@ export default function Sidebar(props) {
                 <div className="scrollbar-inner">
                     <div className="sidenav-header  d-flex  align-items-center">
                         <NavLink className="navbar-brand" to="/">
-                            <img src={logo} className="navbar-brand-img" alt="..." />
+                            <img className='size-lg' src={logos} className="navbar-brand-img" alt="..." />
                         </NavLink>
                         <div className=" ml-auto ">
                             {/* <!-- Sidenav toggler --> d-none*/}

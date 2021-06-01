@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import axios from 'axios'
 
-export default function SubRegisterParent({ handleClose, setPersonalInformations, personalInformations, setFatherFName, setFatherMName, setFatherLName }) {
+export default function SubRegisterParent({ handleClose, setPersonalInformations, personalInformations, parentToRegister }) {
     const firstnameRef = useRef()
     const middlenameRef = useRef()
     const lastnameRef = useRef()
@@ -13,7 +13,7 @@ export default function SubRegisterParent({ handleClose, setPersonalInformations
     const wardRef = useRef()
     const streetRef = useRef()
     const dobRef = useRef()
-    const dateofbirthRef= useRef()
+    const dateofbirthRef = useRef()
 
     function saveParentInformations(e) {
         e.preventDefault();
@@ -29,89 +29,85 @@ export default function SubRegisterParent({ handleClose, setPersonalInformations
             district: districtRef.current.value,
             ward: wardRef.current.value,
             street: streetRef.current.value,
-            dateofbirth:dateofbirthRef.current.value,
+            dateofbirth: dateofbirthRef.current.value,
         }
-        // // console.log(personinfo)
 
-        axios.post('http://localhost:3002/registerParent', {
+        axios.post(`http://localhost:8200/person/registerParent`, {
             personinfo: parentInfo
         }).then(res => {
-            console.log(res.data)
-            setFatherFName(res.data.firstname)
-            setFatherMName(res.data.middletname)
-            setFatherLName(res.data.lastname)
-            personalInformations.fatherid = res.data._id
+            if(parentToRegister === 'MOTHER'){
+                personalInformations.motherid = res.data._id
+            }else{
+                personalInformations.fatherid = res.data._id
+            }
             setPersonalInformations(personalInformations)
             handleClose()
-
         }).catch(err => {
             console.log(err)
         })
     }
 
-
     return (
-
-        <div className='jumbotron pt-1 mt-2 text-white bg-success'>
-            <form className='pt-4 pl-5'>
+        <div className=''>
+            <form className=''>
+                <h3>Personal Information</h3>
                 <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="inputEmail">First Name:</label>
                         <input ref={firstnameRef} type="text" class="form-control" required />
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="inputPassword4">Middle Name:</label>
                         <input ref={middlenameRef} type="text" class="form-control" id="inputPassword4" required />
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="inputPassword4">Last Name:</label>
                         <input ref={lastnameRef} class="form-control" id="inputPassword4" required />
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="inputEmail">Gender/Sex:</label>
                         <input ref={genderRef} type="text" class="form-control" required />
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="inputPassword4">Phone Number:</label>
                         <input ref={phonenumberRef} type="text" class="form-control" id="inputPassword4" required />
                     </div>
-
-
-                    <div class="form-group col-md-3">
-                            <label for="inputPassword4">Date of birth:</label>
-                            <input ref={dateofbirthRef} type="date" class="form-control" id="inputPassword4" />
-                        </div>
-
+                    <div class="form-group col-md-4">
+                        <label for="inputPassword4">Date of birth:</label>
+                        <input ref={dateofbirthRef} type="date" class="form-control" id="inputPassword4" />
+                    </div>
                 </div>
+
+                <h3>PLACE OF RESIDENCE</h3>
                 <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="inputEmail">PLACE OF RESIDENCE::: Country:</label>
+                    <div class="form-group col-md-4">
+                        <label for="inputEmail">Country:</label>
                         <input ref={countryRef} type="text" class="form-control" required />
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label >Region:</label>
                         <input ref={regionRef} type="text" class="form-control" id="inputPassword4" required />
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="inputPassword4">District:</label>
                         <input ref={districtRef} class="form-control" id="inputPassword4" required />
                     </div>
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="inputEmail">Ward:</label>
                         <input ref={wardRef} type="text" class="form-control" />
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="inputPassword4">Village/Street:</label>
                         <input ref={streetRef} type="text" class="form-control" id="inputPassword4" />
                     </div>
                 </div>
 
-                <button className=' float-left btn btn-danger' onClick={saveParentInformations}>SUBMIT</button>
+                <button className=' float-left btn btn-default' onClick={saveParentInformations}>SUBMIT</button>
             </form>
         </div>
     )

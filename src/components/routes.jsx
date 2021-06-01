@@ -1,9 +1,12 @@
 import AuthCheck from "../Pages/Authentication/AuthCheck";
+import Contact from "../Pages/Contact";
 // import Login from "../Pages/Authentication/Login";
 // import Register from "../Pages/Authentication/Register";
 import Dashboard from "../Pages/Dasboard";
 import Register from "../Pages/Register/";
 import RegisterBirth from "../Pages/Register/Birth";
+import Death from "../Pages/Register/Death";
+import View from "../Pages/View";
 // import Birthinfo from "../Pages/Register/Birth/Birthinfo";
 // import Personinfo from "../Pages/Register/Birth/Personinfo";
 // import Parentinfo from "../Pages/Register/Birth/Parentinfo";
@@ -45,6 +48,40 @@ const routes = [
         sidebar: false,
         roles: ['3', '2', '1']
     },
+
+    {
+        name: 'Register Death',
+        component:Death,
+        url: '/register/death',
+        icon: 'circle-08',
+        comments: 'Register Death endpoint',
+        color: 'green',
+        sidebar: false,
+        roles: ['3', '2', '1']
+    },
+
+    {
+        name: 'View',
+        component:View,
+        url: '/register/view',
+        icon: 'circle-08',
+        comments: 'View registered endpoint',
+        color: 'green',
+        sidebar: true,
+        roles: ['3', '2', '1']
+    },
+
+    {
+        name: 'Contact',
+        component: Contact,
+        url: '/register/contact',
+        icon: 'circle-08',
+        comments: 'View registered endpoint',
+        color: 'black',
+        sidebar: true,
+        roles: ['3', '2', '1']
+    },
+
     // {
     //     name: 'Register Birth',
     //     component: Parentinfo ,
@@ -121,12 +158,6 @@ const misc = [
         icon: 'settings',
         color: 'default',
         component: <>Register</>
-    },
-    {
-        name: 'Logout',
-        url: '/logout',
-        icon: 'user-run',
-        color: 'danger',
     }
 ]
 
@@ -136,11 +167,11 @@ const openRoutes = [
         url: '/auth',
         component: AuthCheck,
     },
-    // {
-    //     name: 'Register',
-    //     url: '/register',
-    //     component: Register,
-    // },
+    {
+        name: 'Register',
+        url: '/register',
+        component: Register,
+    },
 ]
 
 export { openRoutes, misc }

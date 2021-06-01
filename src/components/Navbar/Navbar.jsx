@@ -46,6 +46,7 @@ export default function Navbar() {
             <nav className={`navbar navbar-top navbar-expand navbar-dark bg-default border-bottom`}>
                 <div className="container-fluid">
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <h2 className='text-white'>CIVIL REGISTRATION AND VITAL STATISTIC SYSTEM</h2>
                         {/* <BreadCrumb /> */}
                         {/* <!-- Navbar links --> */}
                         <ul className="navbar-nav align-items-center  ml-md-auto ">
