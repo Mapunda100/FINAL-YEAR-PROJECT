@@ -61,9 +61,9 @@ const routes = [
     },
 
     {
-        name: 'View',
+        name: 'View Registered',
         component:View,
-        url: '/register/view',
+        url: '/view/registered',
         icon: 'circle-08',
         comments: 'View registered endpoint',
         color: 'green',
