@@ -59,7 +59,12 @@ export default function BirthInformation({ personalInformations }) {
                                     <div class="form-row ">
                                         <div class="form-group col-md-4">
                                             <label for="inputEmail">Type of birth:</label>
-                                            <input ref={typeofbirthRef} type="text" class="form-control" />
+                                            <select ref={typeofbirthRef} class="custom-select" id="inputPassword4" >
+                                                <option className='form-control'>Mmoja</option>
+                                                <option className='form-control'>wawili</option>
+                                                <option className='form-control'>watatu</option>
+                                            </select>
+                                            {/* <input ref={typeofbirthRef} type="text" class="form-control" /> */}
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputEmail">Date of birth:</label>
@@ -67,7 +72,12 @@ export default function BirthInformation({ personalInformations }) {
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputEmail">Place of Birth</label>
-                                            <input ref={placeofbirthRef} type="text" class="form-control" />
+                                            <select ref={placeofbirthRef} class="custom-select" id="inputPassword4" >
+                                                <option className='form-control'>Home</option>
+                                                <option className='form-control'>Hospitali</option>
+                                                <option className='form-control'>Sehemu nyingine</option>
+                                            </select>
+                                            {/* <input ref={placeofbirthRef} type="text" class="form-control" /> */}
                                         </div>
                                     </div>
                                     <h3 className='text-uppercase'>PLACE OF BIRTH</h3>

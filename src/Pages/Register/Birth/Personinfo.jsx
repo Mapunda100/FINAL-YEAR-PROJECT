@@ -63,7 +63,11 @@ export default function PersonalInformation({ setFormNumber, setPersonalInformat
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputEmail">Gender/Sex:</label>
-                                            <input ref={genderRef} type="text" class="form-control" />
+                                            <select ref={genderRef} class="custom-select" id="inputPassword4" >
+                                                <option className='form-control'>Male</option>
+                                                <option className='form-control'>Female</option>
+                                            </select>
+                                            {/* <input ref={genderRef} type="text" class="form-control" /> */}
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputPassword4">Phone Number:</label>

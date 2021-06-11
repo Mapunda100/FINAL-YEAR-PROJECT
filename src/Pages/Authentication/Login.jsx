@@ -50,8 +50,8 @@ export default function Login({ setHasAccount }) {
                     <div class="container">
                         <div class="header-body text-center mb-7">
                             <div class="row justify-content-center">
-                                <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-                                    <h3 class="text-white">Welcome to Change Supply System!</h3>
+                                <div class="col-xl-5 col-lg-6 col-md-12 px-5">
+                                    <h3 class="text-white">Welcome to CIVIL REGISTRATION AND VITAL STASTISTIC System!</h3>
                                     <h1 class="text-white">Login Page</h1>
                                     {/* <p class="text-lead text-white">Use these awesome forms to login or create new account in
                                     your project for free.</p> */}

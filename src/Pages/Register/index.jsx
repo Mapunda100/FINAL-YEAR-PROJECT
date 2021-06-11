@@ -18,12 +18,12 @@ export default function Register() {
             </div>
             <div className="container-fluid mt--5">
                 <div className="row">
-                    <div className="col-6">
+                    <div className="col-7">
                         <div className="card">
                             <div className="card-body">
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores vero, praesentium sapiente esse omnis officia,
-                                dolores est in ex iusto commodi libero eius earum, molestias nemo reprehenderit tempore sit. Hic.
-                                </p>
+                                <h4>Register Birth is the link where you can register all birth information of a person</h4>
+                                <h4>Register Marriage is the link where you can register all Marriage information of a person</h4>
+                                <h4>Register Death is the link where you can register all Death information information of a person</h4>
                                 <div className='d-flex justify-content-around'>
                                     <Link to='/register/birth'><button className='btn btn-info'>Register Birth</button></Link>
                                     <Link to='/register/marriage'><button className='btn btn-primary'>Register Marriage</button></Link>

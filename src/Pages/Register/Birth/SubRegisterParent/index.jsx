@@ -35,9 +35,9 @@ export default function SubRegisterParent({ handleClose, setPersonalInformations
         axios.post(`http://localhost:8200/person/registerParent`, {
             personinfo: parentInfo
         }).then(res => {
-            if(parentToRegister === 'MOTHER'){
+            if (parentToRegister === 'MOTHER') {
                 personalInformations.motherid = res.data._id
-            }else{
+            } else {
                 personalInformations.fatherid = res.data._id
             }
             setPersonalInformations(personalInformations)
@@ -68,7 +68,10 @@ export default function SubRegisterParent({ handleClose, setPersonalInformations
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputEmail">Gender/Sex:</label>
-                        <input ref={genderRef} type="text" class="form-control" required />
+                        <select ref={genderRef} class="custom-select" id="inputPassword4" >
+                            <option className='form-control'>Male</option>
+                            <option className='form-control'>Female</option>
+                        </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputPassword4">Phone Number:</label>
