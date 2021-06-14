@@ -7,7 +7,7 @@ export default function InfoCard({ title, text, icon, footerVal, footerText, pro
             <React.Fragment>
                 <div className="col-xl-3  col-md-6 col-lg-6 ">
                     <div className="card card-stats">
-                        <Link to={anchor} className="card-body">
+                        <div className="card-body">
                             <div className="row">
                                 <div className="col">
                                     <h5 className="card-title text-uppercase text-muted mb-0">{title}</h5>
@@ -38,7 +38,7 @@ export default function InfoCard({ title, text, icon, footerVal, footerText, pro
                                     </div>
                                 </p>
                             }
-                        </Link>
+                        </div>
                     </div>
                 </div>
 

@@ -5,7 +5,7 @@ import RouteWrapper from '../components/RouteWrapper'
 import NotFound from './Errors/NotFound'
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 
 export default function Main() {
     console.log('were in')
@@ -27,7 +27,7 @@ export default function Main() {
                 {/* {routes.map((item, index) => {
                     return (<Route exact path={item.link} key={index} component={item.component} />)
                 })} */}
-                <Footer />
+                {/* <Footer /> */}
             </div>
 
 

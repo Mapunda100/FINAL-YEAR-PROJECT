@@ -6,7 +6,9 @@ import Dashboard from "../Pages/Dasboard";
 import Register from "../Pages/Register/";
 import RegisterBirth from "../Pages/Register/Birth";
 import Death from "../Pages/Register/Death";
-import View from "../Pages/View";
+import ViewPersons from "../Pages/View";
+import PersonProfile from "../Pages/View/PersonProfile";
+
 // import Birthinfo from "../Pages/Register/Birth/Birthinfo";
 // import Personinfo from "../Pages/Register/Birth/Personinfo";
 // import Parentinfo from "../Pages/Register/Birth/Parentinfo";
@@ -51,7 +53,7 @@ const routes = [
 
     {
         name: 'Register Death',
-        component:Death,
+        component: Death,
         url: '/register/death',
         icon: 'circle-08',
         comments: 'Register Death endpoint',
@@ -62,7 +64,7 @@ const routes = [
 
     {
         name: 'View Registered',
-        component:View,
+        component: ViewPersons,
         url: '/view/registered',
         icon: 'circle-08',
         comments: 'View registered endpoint',
@@ -70,7 +72,14 @@ const routes = [
         sidebar: true,
         roles: ['3', '2', '1']
     },
-
+    {
+        name: 'View Registered',
+        component: PersonProfile,
+        url: '/person/:id',
+        comments: 'View registered endpoint',
+        sidebar: false,
+        roles: ['3', '2', '1']
+    },
     {
         name: 'Contact',
         component: Contact,
