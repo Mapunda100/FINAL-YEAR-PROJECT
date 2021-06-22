@@ -1,9 +1,15 @@
 import axios from 'axios'
-import React, { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useRef, useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { RegisterPersonContext } from '../../../Context/RegisterPersonContext';
 
-export default function BirthInformation({ personalInformations }) {
-    console.log(personalInformations)
+export default function BirthInformation() {
+    const hist = useHistory()
+    const { state, dispatch } = React.useContext(RegisterPersonContext)
+    let setPersonDetails = personDetails => dispatch({ type: 'personDetails', payload: personDetails })
+    const [message, setMessage] = useState({ status: '', body: '' })
+
+    const [loading, setLoading] = useState(false)
 
     // const personidRef = useRef()
     const dateofbirthRef = useRef()
@@ -17,6 +23,8 @@ export default function BirthInformation({ personalInformations }) {
 
     function sendbirthinfo(e) {
         e.preventDefault();
+        setLoading(true)
+        setMessage({ status: '', body: '' })
         const birthinfo = {
             // personid: personidRef.current.value,
             dateofbirth: dateofbirthRef.current.value,
@@ -29,12 +37,26 @@ export default function BirthInformation({ personalInformations }) {
             street: streetRef.current.value
         }
 
-        console.log(personalInformations)
-        axios.post('http://localhost:8200/person/register', { personalInformations, birthinfo })
+        // console.log(personalInformations)
+        const payload = { personalInformations: state.personDetails, birthinfo }
+        console.log(payload)
+        axios.post('http://localhost:8200/person/register', payload)
             .then(data => {
                 console.log(data)
+                setLoading(false)
+                setMessage({ status: 'success', body: 'User Successfully Created' })
+
+                setTimeout(() => {
+                    hist.push('/register/birth')
+                }, 2000);
             })
             .catch(err => {
+                setTimeout(() => {
+                    hist.push('/register/birth')
+                    console.log('object')
+                }, 2000);
+                setLoading(false)
+                setMessage({ status: 'danger', body: err.message })
                 console.log(err)
             })
     }
@@ -103,9 +125,14 @@ export default function BirthInformation({ personalInformations }) {
                                             <input ref={streetRef} type="text" class="form-control" />
                                         </div>
                                     </div>
-                                    <button className='float-right btn btn-default ' type="submit" >SUBMIT</button>
+                                    <button className='float-right btn btn-default' type="submit" disabled={loading}> {loading && <span className="spinner-border spinner-border-sm"></span>} SUBMIT</button>
                                 </form>
                             </div>
+                            {message.status &&
+                                <div className={`alert alert-${message.status} m-2`}>
+                                    {message.body}
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

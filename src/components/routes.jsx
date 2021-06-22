@@ -5,6 +5,7 @@ import Contact from "../Pages/Contact";
 import Dashboard from "../Pages/Dasboard";
 import Register from "../Pages/Register/";
 import RegisterBirth from "../Pages/Register/Birth";
+import RegisterMarriage from "../Pages/Register/Marriage";
 import Death from "../Pages/Register/Death";
 import ViewPersons from "../Pages/View";
 import PersonProfile from "../Pages/View/PersonProfile";
@@ -33,7 +34,7 @@ const routes = [
     {
         name: 'Register',
         component: Register,
-        url: '/register/personalinfo',
+        url: '/register',
         icon: 'circle-08',
         comments: 'Register endpoint',
         color: 'red',
@@ -44,6 +45,16 @@ const routes = [
         name: 'Register Birth',
         component: RegisterBirth,
         url: '/register/birth',
+        icon: 'circle-08',
+        comments: 'Register Birth endpoint',
+        color: 'red',
+        sidebar: false,
+        roles: ['3', '2', '1']
+    },
+    {
+        name: 'Register Birth',
+        component: RegisterMarriage,
+        url: '/register/marriage',
         icon: 'circle-08',
         comments: 'Register Birth endpoint',
         color: 'red',

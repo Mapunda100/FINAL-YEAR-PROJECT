@@ -1,7 +1,13 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import axios from 'axios'
+import { RegisterPersonContext } from '../../../../Context/RegisterPersonContext'
 
-export default function SubRegisterParent({ handleClose, setPersonalInformations, personalInformations, parentToRegister }) {
+export default function SubRegisterParent({ handleClose, setPersonalInformations, personalInformations, parentToRegister, setRegisterNewParent }) {
+    const { state, dispatch } = React.useContext(RegisterPersonContext)
+    let setPersonDetails = personDetails => dispatch({ type: 'personDetails', payload: personDetails })
+
+    const [loading, setLoading] = useState(false)
+
     const firstnameRef = useRef()
     const middlenameRef = useRef()
     const lastnameRef = useRef()
@@ -12,11 +18,11 @@ export default function SubRegisterParent({ handleClose, setPersonalInformations
     const districtRef = useRef()
     const wardRef = useRef()
     const streetRef = useRef()
-    const dobRef = useRef()
     const dateofbirthRef = useRef()
 
     function saveParentInformations(e) {
         e.preventDefault();
+        setLoading(true)
 
         const parentInfo = {
             firstname: firstnameRef.current.value,
@@ -35,15 +41,38 @@ export default function SubRegisterParent({ handleClose, setPersonalInformations
         axios.post(`http://localhost:8200/person/registerParent`, {
             personinfo: parentInfo
         }).then(res => {
-            if (parentToRegister === 'MOTHER') {
-                personalInformations.motherid = res.data._id
+            if (parentToRegister === 'FATHER') {
+                // personalInformations.fatherid = res.data._id
+                setPersonDetails(
+                    {
+                        ...state.personDetails,
+                        fatherid: res.data._id,
+                        fatherInfo: {
+                            fname: res.data.firstname,
+                            mname: res.data.middlename,
+                            lname: res.data.lastname
+                        }
+                    });
             } else {
-                personalInformations.fatherid = res.data._id
+                setPersonDetails(
+                    {
+                        ...state.personDetails,
+                        motherid: res.data._id,
+                        motherInfo: {
+                            fname: res.data.firstname,
+                            mname: res.data.middlename,
+                            lname: res.data.lastname
+                        }
+                    });
+                // personalInformations.motherid = res.data._id
             }
-            setPersonalInformations(personalInformations)
-            handleClose()
+            setLoading(false)
+
+            // setPersonalInformations(personalInformations)
+            // handleClose()
         }).catch(err => {
             console.log(err)
+            setLoading(false)
         })
     }
 
@@ -69,8 +98,8 @@ export default function SubRegisterParent({ handleClose, setPersonalInformations
                     <div class="form-group col-md-4">
                         <label for="inputEmail">Gender/Sex:</label>
                         <select ref={genderRef} class="custom-select" id="inputPassword4" >
-                            <option className='form-control'>Male</option>
-                            <option className='form-control'>Female</option>
+                            <option className='form-control' value='male'>Male</option>
+                            <option className='form-control' value='female'>Female</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
@@ -110,7 +139,15 @@ export default function SubRegisterParent({ handleClose, setPersonalInformations
                     </div>
                 </div>
 
-                <button className=' float-left btn btn-default' onClick={saveParentInformations}>SUBMIT</button>
+                <div className="modal-footer">
+                    <button className='btn btn-neutral'
+                        onClick={() => {
+                            setRegisterNewParent(false)
+                            handleClose()
+                        }}
+                    >CANCEL</button>
+                    <button className='btn btn-default' disabled={loading} onClick={saveParentInformations}> {loading && <span className='spinner-border spinner-border-sm'></span>} SUBMIT</button>
+                </div>
             </form>
         </div>
     )
