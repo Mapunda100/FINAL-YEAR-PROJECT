@@ -102,12 +102,12 @@ export default function ViewPeople() {
                                         { title: 'Middle Name', field: 'middlename' },
                                         { title: 'Last Name', field: 'lastname' },
                                         { title: 'Gender', field: 'gender' },
-                                        { title: 'Date of Birth', field: 'birthInfo.dateofbirth' },
+                                        // { title: 'Date of Birth', field: 'birthInfo.dateofbirth' },
                                         {
                                             title: 'Profile', field: 'finishedRegistration',
                                             lookup: {
-                                                'true': 'Completed',
-                                                'false': 'Not Completed'
+                                                'true': <span className='badge badge-info'>Completed</span>,
+                                                'false': <span className='badge badge-danger'>Not Completed</span>
                                             }
                                         }
                                         // {

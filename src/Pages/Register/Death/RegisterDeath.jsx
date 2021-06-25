@@ -2,7 +2,9 @@ import React, { useRef, useState } from 'react'
 import axios from 'axios'
 
 export default function RegisterDeath({ deceasedInfos }) {
+    console.log(deceasedInfos)
     const jobRef = useRef()
+    const [job, setJob] = useState(deceasedInfos.job)
     const ageRef = useRef()
     const placeofdeathRef = useRef()
     const typeofdeathRef = useRef()
@@ -26,18 +28,21 @@ export default function RegisterDeath({ deceasedInfos }) {
 
         const personinfo = {
             job: jobRef.current.value,
-            age: ageRef.current.value,
+            // age: ageRef.current.value,
             placeofdeath: placeofdeathRef.current.value,
             typeofdeath: typeofdeathRef.current.value,
             dateofdeath: dateofdeathRef.current.value,
             causeofdeath: causeofdeathRef.current.value,
-            country: countryRef.current.value,
-            region: regionRef.current.value,
-            district: districtRef.current.value,
-            ward: wardRef.current.value,
-            street: streetRef.current.value,
+            location: {
+                country: countryRef.current.value,
+                region: regionRef.current.value,
+                district: districtRef.current.value,
+                ward: wardRef.current.value,
+                street: streetRef.current.value,
+            },
             personid: deceasedInfos._id
         }
+        // console.log(personinfo)
         axios.post('http://localhost:8200/death/register/', { personinfo })
             .then(data => {
                 console.log(data)
@@ -47,14 +52,14 @@ export default function RegisterDeath({ deceasedInfos }) {
             .catch(err => {
                 console.log(err)
                 // setLoading(false)
-                setMessage({ status: 'error', data: 'Failed to save data' })
-            }).finally(()=>{
+                console.log(err.response)
+                setMessage({ status: 'danger', data: err.response.data })
+            }).finally(() => {
                 setLoading(false)
             })
     }
     return (
         <div>
-            {/* <h2 styl={{ textAlign: 'center' }}>Register person's information here</h2> */}
             <div className=''>
                 <form onSubmit={sendpersoninfo} className=''>
                     <h4 className='text-uppercase'>Personal Information</h4>
@@ -74,41 +79,41 @@ export default function RegisterDeath({ deceasedInfos }) {
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputPassword4">Job of Decease:</label>
-                            <input ref={jobRef} type="text" class="form-control" id="inputPassword4" />
+                            <input ref={jobRef} value={job} type="text" class="form-control" id="inputPassword4" onChange={(e) => setJob(e.target.value)} />
                         </div>
                         {/* <div class="form-group col-md-4">
                             <label for="inputPassword4">Date of Death:</label>
                             <input ref={phonenumberRef} type="Date" class="form-control" id="inputPassword4" />
                         </div> */}
-                        <div class="form-group col-md-4">
+                        {/* <div class="form-group col-md-4">
                             <label for="inputPassword4">Age:</label>
                             <input ref={ageRef} type="text" class="form-control" id="inputPassword4" />
-                        </div>
+                        </div> */}
                     </div>
                     <h4 className='text-uppercase'>Death Information</h4>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="inputPassword4">Place of Death:</label>
-                            <select ref={placeofdeathRef} class="custom-select" id="inputPassword4" >
-                                <option className='form-control'>Hospital</option>
-                                <option className='form-control'>Home</option>
-                                <option className='form-control'>Elsewhere</option>
+                            <select ref={placeofdeathRef} class="custom-select" id="inputPassword4" required >
+                                <option className='form-control' value='hospital'>Hospital</option>
+                                <option className='form-control' value='home'>Home</option>
+                                <option className='form-control' value='elsewhere'>Elsewhere</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputPassword4">Type of Death:</label>
-                            <select ref={typeofdeathRef} class="custom-select" id="inputPassword4" >
-                                <option className='form-control'>Nature</option>
-                                <option className='form-control'>Not Nature</option>
+                            <select ref={typeofdeathRef} class="custom-select" id="inputPassword4" required >
+                                <option className='form-control' value='nature'>Nature</option>
+                                <option className='form-control' value='not nature'>Not Nature</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputPassword4">Date of Death:</label>
-                            <input ref={dateofdeathRef} type="Date" class="form-control" id="inputPassword4" />
+                            <input ref={dateofdeathRef} type="date" class="form-control" id="inputPassword4" required />
                         </div>
                         <div class="form-group col-md-12">
                             <label for="inputPassword4">Cause of Death:</label>
-                            <textarea ref={causeofdeathRef} type="text" class="form-control" id="inputPassword4" />
+                            <textarea ref={causeofdeathRef} type="text" class="form-control" id="inputPassword4" required />
                         </div>
                     </div>
 
