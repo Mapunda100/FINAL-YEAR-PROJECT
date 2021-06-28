@@ -82,9 +82,9 @@ export default function BirthInformation() {
                                         <div class="form-group col-md-4">
                                             <label for="inputEmail">Type of birth:</label>
                                             <select ref={typeofbirthRef} class="custom-select" id="inputPassword4" >
-                                                <option className='form-control'>Mmoja</option>
-                                                <option className='form-control'>wawili</option>
-                                                <option className='form-control'>watatu</option>
+                                                <option className='form-control'>Single</option>
+                                                <option className='form-control'>Twin</option>
+                                                <option className='form-control'>Else</option>
                                             </select>
                                             {/* <input ref={typeofbirthRef} type="text" class="form-control" /> */}
                                         </div>
@@ -96,8 +96,8 @@ export default function BirthInformation() {
                                             <label for="inputEmail">Place of Birth</label>
                                             <select ref={placeofbirthRef} class="custom-select" id="inputPassword4" >
                                                 <option className='form-control'>Home</option>
-                                                <option className='form-control'>Hospitali</option>
-                                                <option className='form-control'>Sehemu nyingine</option>
+                                                <option className='form-control'>Hospital</option>
+                                                <option className='form-control'>Else where</option>
                                             </select>
                                             {/* <input ref={placeofbirthRef} type="text" class="form-control" /> */}
                                         </div>

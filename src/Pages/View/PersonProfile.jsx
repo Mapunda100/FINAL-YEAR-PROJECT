@@ -22,9 +22,11 @@ export default function PersonProfile(props) {
                         <div className="card-header h3">Person Informations</div>
                         <div className="card-body">
                             <p><span className='font-weight-bold'>Full Name:</span> {`${person.firstname} ${person.middlename} ${person.lastname}`}</p>
-                            <p><span className='font-weight-bold'>First Name:</span> {person.firstname}</p>
+                            <p><span className='font-weight-bold'>Person ID: </span> {person._id}</p>
+
+                            {/* <p><span className='font-weight-bold'>First Name:</span> {person.firstname}</p>
                             <p><span className='font-weight-bold'>Middle Name:</span> {person.middlename}</p>
-                            <p><span className='font-weight-bold'>Last Name:</span> {person.lastname}</p>
+                            <p><span className='font-weight-bold'>Last Name:</span> {person.lastname}</p> */}
 
                             <p><span className='font-weight-bold'>Date of Birth:</span> {person.birthInfo.dateofbirth}</p>
                             <p><span className='font-weight-bold'>Age: </span> {moment(Date.now()).diff(person.birthInfo.dateofbirth, 'years')} Years</p>

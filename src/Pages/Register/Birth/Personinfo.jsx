@@ -45,6 +45,7 @@ export default function PersonalInformation({ setFormNumber, setPersonalInformat
             ward: ward,
             street: street
         }
+        console.log(personinfo)
 
         setPersonDetails(personinfo)
         //form number for shifting the form pages
@@ -81,8 +82,10 @@ export default function PersonalInformation({ setFormNumber, setPersonalInformat
                                         <div class="form-group col-md-4">
                                             <label for="inputEmail">Gender/Sex:</label>
                                             <select value={gender} onChange={(e) => setGender(e.target.value)} class="custom-select" id="inputPassword4" >
+                                                <option className='form-control' value=''>Select gender</option>
                                                 <option className='form-control' value='male'>Male</option>
                                                 <option className='form-control' value='female'>Female</option>
+
                                             </select>
                                             {/* <input ref={genderRef} type="text" class="form-control" /> */}
                                         </div>

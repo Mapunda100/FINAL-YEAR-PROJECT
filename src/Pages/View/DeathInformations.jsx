@@ -35,7 +35,7 @@ export default function DeathInformations({ userId }) {
                     <p><span className='font-weight-bold'>Cause of Death:</span> {`${deathInfo.data.causeofdeath} `}</p>
                     <p><span className='font-weight-bold'>Place of Death:</span> {`${deathInfo.data.placeofdeath} `}</p>
                     <p><span className='font-weight-bold'>Type of Death:</span> {`${deathInfo.data.typeofdeath} `}</p>
-                    <p><span className='font-weight-bold'>Death Location of Death:</span>
+                    <p><span className='font-weight-bold'>Location of Death:</span>
                         &nbsp; {`${deathInfo.data.location.country} | ${deathInfo.data.location.region} | ${deathInfo.data.location.district} | ${deathInfo.data.location.ward} | ${deathInfo.data.location.street}`}
                     </p>
                     {/* <p><span className='font-weight-bold'>Reason of Death:</span> {`${deathInfo.data.groomId.firstname} `}</p> */}

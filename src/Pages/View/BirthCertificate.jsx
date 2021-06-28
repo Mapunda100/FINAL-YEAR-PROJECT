@@ -48,19 +48,19 @@ export default function BirthCertificate() {
                             <thead>
                                 <tr class="">
                                     <th>&nbsp;</th>
-                                    <th><span>No. of Entry</span></th>
-                                    <th><span>Where Born</span></th>
-                                    <th><span>Name of nini</span></th>
-                                    <th><span>Gender</span></th>
-                                    <th><span>Fathers occupation</span></th>
-                                    <th><span>Safari</span></th>
-                                    <th><span>Android Webview</span></th>
-                                    <th><span>Chrome for Android</span></th>
-                                    <th><span>Edge Mobile</span></th>
-                                    <th><span>Firefox for Android</span></th>
-                                    <th><span>Opera for Android</span></th>
+                                    <th><span>Full name:</span></th>
+                                    <th><span>Date of Birth</span></th>
+                                    <th><span>Nationality</span></th>
+                                    <th><span>Sex</span></th>
+                                    <th><span>Father's Name</span></th>
+                                    <th><span>Father's Nationality</span></th>
+                                    <th><span>Mother's name</span></th>
+                                    <th><span>Mother's Nationality</span></th>
+                                    <th><span>Date of Registration</span></th>
+                                    <th><span>Signature of Registering officer</span></th>
+                                    {/* <th><span>Opera for Android</span></th>
                                     <th><span>Safari on IOS</span></th>
-                                    <th><span>Samsung Internet</span></th>
+                                    <th><span>Samsung Internet</span></th> */}
                                 </tr>
                                 <tr class="subhead">
                                     <th>&nbsp;</th>
@@ -84,8 +84,13 @@ export default function BirthCertificate() {
                                     <th><span>Samsung Internet</span></th>
                                 </tr>
                             </thead>
+
                         </table>
+
                     </div>
+                    <p>Certified under the births and death's registration ordinance (Cap.108 of the Laws) to be
+                        a true copy of an entry in the registration of my custody of Births. </p>
+                    <p className='text-center'>Dated this....................</p>
                     {/* <p class="other"><a target="_blank" href="https://codepen.io/paulobrien/pen/OrwXOp">See other similar versions</a></p>
                     <p class="other"><a target="_blank" href="https://codepen.io/paulobrien/pen/bOOVEJ">See other similar versions</a></p>
                     <p class="other"><a target="_blank" href="https://codepen.io/paulobrien/pen/xmmwOr">See other similar versions</a></p>

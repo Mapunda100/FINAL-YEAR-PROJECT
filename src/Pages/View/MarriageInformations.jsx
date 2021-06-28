@@ -37,8 +37,7 @@ export default function MarriageInformations({ user }) {
             marriageInfo.data ?
                 <>
                     {console.log(marriageInfo.data)}
-                    <p><span className='font-weight-bold'>Groom Name:</span> {`${marriageInfo.data.groomId.firstname} `}</p>
-                    <p><span className='font-weight-bold'>Bride Name:</span> {`${marriageInfo.data.brideId.firstname} ${marriageInfo.data.brideId.middlename} ${marriageInfo.data.brideId.lastname}`}</p>
+                    <p><span className='font-weight-bold'>BrideGroom Name:</span> {`${marriageInfo.data.groomId.firstname} ${marriageInfo.data.groomId.middlename} ${marriageInfo.data.groomId.lastname} `}</p>
                     <p><span className='font-weight-bold'>Bride Name:</span> {`${marriageInfo.data.brideId.firstname} ${marriageInfo.data.brideId.middlename} ${marriageInfo.data.brideId.lastname}`}</p>
                     <p><span className='font-weight-bold'>Date of Marriage:</span> {marriageInfo.data.dateofmarriage}</p>
                     <p><span className='font-weight-bold'>Date of Marriage:</span> {marriageInfo.data.placeofmarriage}</p>
