@@ -122,3 +122,8 @@ body {
       position: relative;
     }
 }
+
+.w90 {
+    width:70vw !important; 
+    max-width:90vw !important; 
+}

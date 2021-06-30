@@ -12,7 +12,9 @@ export default function PersonProfile(props) {
         <div className="container-fluid mt-3">
             <div className="card">
                 <div className="card-body d-flex">
-                    <BirthCertificate />
+                    {person.finishedRegistration &&
+                        <BirthCertificate user={person} />
+                    }
                     <button className="btn btn-danger btn-sm">Delete User</button>
                 </div>
             </div>
