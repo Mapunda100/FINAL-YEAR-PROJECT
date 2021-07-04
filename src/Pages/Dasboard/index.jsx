@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import axios from 'axios';
 import MaleVSFemale from './Graphs/maleVSFemale'
 import YouthVSElders from './Graphs/YouthVSElders'
+import DeathsVSBirths from './Graphs/DeathsVSBirths'
 
 export default function Dashboard() {
     const hist = useHistory()
@@ -72,6 +73,9 @@ export default function Dashboard() {
                     </div>
                     <div className="col-4">
                         <YouthVSElders userCounts={userCounts} />
+                    </div>
+                    <div className="col-4">
+                        <DeathsVSBirths userCounts={userCounts} />
                     </div>
                 </div>
             </div>
