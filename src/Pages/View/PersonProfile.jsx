@@ -15,7 +15,7 @@ export default function PersonProfile(props) {
                     {person.finishedRegistration &&
                         <BirthCertificate user={person} />
                     }
-                    <button className="btn btn-danger btn-sm">Delete User</button>
+                    <button className="btn btn-danger btn-sm ml-2">Delete User</button>
                 </div>
             </div>
             <div className="row">
