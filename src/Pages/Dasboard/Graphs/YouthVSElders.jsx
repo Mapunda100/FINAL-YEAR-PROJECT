@@ -7,8 +7,8 @@ export default function YoutVSElders() {
 
     const state = {
         series: [{
-            name: 'Total Registered',
-            data: [45, 55]
+            name: 'Registered Age Distribution',
+            data: Object.values(youthVSElders.data)
         }],
         options: {
             chart: {
@@ -24,7 +24,7 @@ export default function YoutVSElders() {
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Male', 'Female'],
+                categories: Object.keys(youthVSElders.data),
             },
             fill: {
                 opacity: 0.8
@@ -33,23 +33,26 @@ export default function YoutVSElders() {
     }
 
     async function fetchYouthsVSElders() {
-        await axios.get('person/youthsvselders')
+        setYouthsVSElders({ loading: true, data: {} })
+        await axios.get('person/getchildrenyouthselders')
             .then(response => {
                 console.log(response)
+                setYouthsVSElders({ loading: false, data: response.data })
             }).catch(error => {
                 console.log(error)
+                setYouthsVSElders({ loading: false, data: {} })
             })
     }
 
     useEffect(() => {
         fetchYouthsVSElders()
         return () => {
-            setYouthsVSElders()
+            // setYouthsVSElders()
         }
     }, [])
     return (
         <div className='card'>
-            <h4 className="card-header">Youths VS Elders</h4>
+            <h4 className="card-header">Childrens VS Youths VS Elders</h4>
             <div className="card-body">
                 {youthVSElders.loading ?
                     <div className='text-center'>
