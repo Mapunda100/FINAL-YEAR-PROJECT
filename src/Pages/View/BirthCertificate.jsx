@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './style.css'
+import moment from 'moment'
+
 import { Modal } from 'react-bootstrap'
 export default function BirthCertificate({ user }) {
     const [show, setShow] = useState(false)
@@ -25,6 +27,7 @@ export default function BirthCertificate({ user }) {
                             <thead>
                                 <tr class="">
                                     <th>&nbsp;</th>
+                                    <th className='text-sm'><span>Person ID:</span></th>
                                     <th className='text-sm'><span>Full name:</span></th>
                                     <th className='text-sm'><span>Date of Birth</span></th>
                                     <th className='text-sm'><span>Nationality</span></th>
@@ -34,7 +37,7 @@ export default function BirthCertificate({ user }) {
                                     <th className='text-sm'><span>Mother's name</span></th>
                                     <th className='text-sm'><span>Mother's Nationality</span></th>
                                     <th className='text-sm'><span>Date of Registration</span></th>
-                                    <th className='text-sm'><span>Signature of Registering officer</span></th>
+                                    {/* <th className='text-sm'><span>Signature of Registering officer</span></th> */}
                                 </tr>
                                 <tr class="subhead">
                                     <th>&nbsp;</th>
@@ -46,6 +49,7 @@ export default function BirthCertificate({ user }) {
                                             <p className='p-0 m-0'>Iringa Urban</p>
                                         </span>
                                     </th> */}
+                                    <th><span>{`${user.firstname} ${user.middlename} ${user.lastname}`}</span></th>
                                     <th><span>{user.birthInfo.dateofbirth}</span></th>
                                     <th><span>Tanzanian</span></th>
                                     <th><span>{user.gender}</span></th>
@@ -53,8 +57,8 @@ export default function BirthCertificate({ user }) {
                                     <th><span>Tanzanian</span></th>
                                     <th><span>{`${user.motherid.firstname} ${user.motherid.middlename} ${user.motherid.lastname}`}</span></th>
                                     <th><span>Tanzanian</span></th>
-                                    <th><span>{user.createdAt}</span></th>
-                                    <th><span>- - - - - - - - - - - - - - - - - - -</span></th>
+                                    <th><span>{moment(user.createdAt).format('DD MMMM YYYY')}</span></th>
+                                    {/* <th><span>- - - - - - - - - - - - - - - - - - -</span></th> */}
                                 </tr>
                             </thead>
 
@@ -63,7 +67,7 @@ export default function BirthCertificate({ user }) {
                     </div>
                     <p className='text-center'>Certified under the births and death's registration ordinance (Cap.108 of the Laws) to be
                         a true copy of an entry in the registration of my custody of Births. </p>
-                    <p className='text-center'>Dated this....................</p>
+                    <p className='text-center'>Dated this <u>{moment(user.createdAt).format('DD MMMM YYYY')}</u></p>
                 </Modal.Body>
             </Modal>
         </div>
