@@ -11,17 +11,17 @@ export default function PersonProfile(props) {
     const hist = useHistory()
     const [person] = useState(props.location.state)
 
-    function deleteuser(e){
+    function deleteuser(e) {
         e.preventDefault()
 
         axios.delete(`person/${person._id}`)
-       .then(res=>{
-           console.log('User successfully deleted')
-           hist.goBack()
-       })
-       .catch(err=>{
-           console.log(err)
-       })
+            .then(res => {
+                console.log('User successfully deleted')
+                hist.goBack()
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
     return (
         <div className="container-fluid mt-3">
@@ -31,7 +31,7 @@ export default function PersonProfile(props) {
                         <BirthCertificate user={person} />
                     }
                     <ShowForRole allowedRoles={['3', '2']} >
-                        <button className="btn btn-danger btn-sm ml-2">Delete User</button>
+                        <button className="btn btn-danger btn-sm ml-2" onClick={deleteuser}>Delete User</button>
                     </ShowForRole>
                 </div>
             </div>
