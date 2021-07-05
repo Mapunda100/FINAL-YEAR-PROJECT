@@ -5,12 +5,11 @@ import DeathInformations from './DeathInformations'
 import BirthCertificate from './BirthCertificate'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
-
+import ShowForRole from '../../components/ShowForRole'
 
 export default function PersonProfile(props) {
-    const [person] = useState(props.location.state)
     const hist = useHistory()
-
+    const [person] = useState(props.location.state)
 
     function deleteuser(e){
         e.preventDefault()
@@ -31,7 +30,9 @@ export default function PersonProfile(props) {
                     {person.finishedRegistration &&
                         <BirthCertificate user={person} />
                     }
-                    <button className="btn btn-danger btn-sm ml-2" onClick={deleteuser}>Delete User</button>
+                    <ShowForRole allowedRoles={['3', '2']} >
+                        <button className="btn btn-danger btn-sm ml-2">Delete User</button>
+                    </ShowForRole>
                 </div>
             </div>
             <div className="row">
@@ -63,20 +64,10 @@ export default function PersonProfile(props) {
                     </div>
                 </div>
                 <div className="col-4">
-                    <div className="card">
-                        <div className="card-header h3">Marriage Information</div>
-                        <div className="card-body">
-                            <MarriageInformations user={person} />
-                        </div>
-                    </div>
+                    <MarriageInformations user={person} />
                 </div>
                 <div className="col-4">
-                    <div className="card">
-                        <div className="card-header h3">Death Information</div>
-                        <div className="card-body">
-                            <DeathInformations userId={person._id} />
-                        </div>
-                    </div>
+                    <DeathInformations user={person} userId={person._id} />
                 </div>
             </div>
         </div>

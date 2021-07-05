@@ -18,7 +18,7 @@ import PersonProfile from "../Pages/View/PersonProfile";
 // import Requests from "../Pages/Requests";
 // import NewRequest from "../Pages/Requests/NewRequest";
 // import RequestProfile from "../Pages/Requests/RequestProfile";
-// import Users from "../Pages/Users";
+import Users from "../Pages/Users";
 
 const routes = [
     {
@@ -89,6 +89,16 @@ const routes = [
         url: '/person/:id',
         comments: 'View registered endpoint',
         sidebar: false,
+        roles: ['3', '2', '1']
+    },
+    {
+        name: 'Users',
+        component: Users,
+        url: '/register/user',
+        icon: 'circle-08',
+        comments: 'View registered endpoint',
+        color: 'black',
+        sidebar: true,
         roles: ['3', '2', '1']
     },
     {
@@ -164,22 +174,22 @@ const routes = [
     // },
 ]
 
-const misc = [
-    {
-        name: 'Profile',
-        url: '/profile',
-        icon: 'single-02',
-        color: 'primary',
-        component: <>Register</>
-    },
-    {
-        name: 'Settings',
-        url: '/settings',
-        icon: 'settings',
-        color: 'default',
-        component: <>Register</>
-    }
-]
+// const misc = [
+//     {
+//         name: 'Profile',
+//         url: '/profile',
+//         icon: 'single-02',
+//         color: 'primary',
+//         component: <>Register</>
+//     },
+//     {
+//         name: 'Settings',
+//         url: '/settings',
+//         icon: 'settings',
+//         color: 'default',
+//         component: <>Register</>
+//     }
+// ]
 
 const openRoutes = [
     {
@@ -194,6 +204,6 @@ const openRoutes = [
     },
 ]
 
-export { openRoutes, misc }
+export { openRoutes }
 
 export default routes

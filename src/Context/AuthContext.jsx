@@ -1,9 +1,9 @@
 import React, { useReducer } from "react";
 
 let initialState = {
-    isAuthenticated: localStorage.getItem('token') ? true : false,
+    isAuthenticated: sessionStorage.getItem('token') ? true : false,
     token: '',
-    currentUser: JSON.parse(localStorage.getItem('currentUser')) || {}
+    currentUser: JSON.parse(sessionStorage.getItem('currentUser')) || {}
 }
 let reducer = (state, action) => {
     switch (action.type) {

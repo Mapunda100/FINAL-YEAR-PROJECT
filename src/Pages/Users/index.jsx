@@ -17,7 +17,8 @@ export default function Users() {
     //     { name: 'emily in paris', email: 'emily@gmail.com', phone: '0652112252', role_id: 2, location_id: '54' },
     // ]
     async function fetchUsers() {
-        await axios.get('/list_of_all_users')
+        setUsers({ loading: true, data: [] })
+        await axios.get('/allUsers')
             .then(res => {
                 console.log(res)
                 setUsers({ loading: false, data: res.data })
@@ -56,11 +57,11 @@ export default function Users() {
                                     <div className="col">
                                         <h5 className="h3 text-white mb-0 text-truncate">Users</h5>
                                     </div>
-                                    <ShowForPermission allowedRoles={[3]}>
+                                    <ShowForPermission allowedRoles={['3', '2']}>
                                         <button type="button" className="btn btn-primary btn-sm mr-3" data-toggle="modal" data-target="#staticBackdrop">
                                             Create New User
                                         </button>
-                                        <CreateUser />
+                                        <CreateUser fetchUsers={fetchUsers} />
                                     </ShowForPermission>
                                 </div>
                             </div>
@@ -68,15 +69,15 @@ export default function Users() {
                                 <MaterialTable
                                     title="Registered Users"
                                     columns={[
-                                        { title: 'Name', field: 'name' },
+                                        { title: 'Name', field: 'firstname', render: (data) => `${data.firstname} ${data.lastname}` },
                                         { title: 'Email', field: 'email' },
-                                        { title: 'Phone Number', field: 'phone', },
+                                        { title: 'Phone Number', field: 'phonenumber', },
                                         {
-                                            title: 'Role', field: 'role_id',
+                                            title: 'Role', field: 'role',
                                             lookup: {
-                                                1: <div className='badge badge-primary'>Requester</div>,
-                                                2: <div className='badge badge-primary'>Provider</div>,
-                                                3: <div className='badge badge-primary'>Admin</div>,
+                                                1: <div className='badge badge-primary'>Registrar</div>,
+                                                2: <div className='badge badge-primary'>Admin</div>,
+                                                3: <div className='badge badge-primary'>Super Admin</div>,
                                             },
                                         },
                                     ]}
@@ -85,7 +86,6 @@ export default function Users() {
                                     isLoading={users.loading}
                                     options={{
                                         search: true,
-                                        selection: true,
                                     }}
                                 />
                             </div>

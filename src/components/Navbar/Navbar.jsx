@@ -24,15 +24,15 @@ export default function Navbar() {
     function handleLogout() {
         let logout = window.confirm('are you sure you want to logout?')
         if (logout) {
-            localStorage.removeItem('token')
-            localStorage.removeItem('userDetails')
+            sessionStorage.removeItem('token')
+            sessionStorage.removeItem('userDetails')
             setIsAuthenticated(false)
 
-            // axios.post('/logout', { token: localStorage.getItem('token') })
+            // axios.post('/logout', { token: sessionStorage.getItem('token') })
             //     .then(res => {
             //         console.log(res)
-            //         // localStorage.removeItem('token')
-            //         // localStorage.removeItem('userDetails')
+            //         // sessionStorage.removeItem('token')
+            //         // sessionStorage.removeItem('userDetails')
             //         // setIsAuthenticated(false)
             //     }).catch(error => {
             //         console.log(error)

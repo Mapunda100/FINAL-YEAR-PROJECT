@@ -25,8 +25,8 @@ export default function Login({ setHasAccount }) {
         await axios.post('/login', { email, password })
             .then(response => {
                 console.log(response)
-                localStorage.setItem('token', response.data.token)
-                localStorage.setItem('currentUser', JSON.stringify(response.data.user))
+                sessionStorage.setItem('token', response.data.token)
+                sessionStorage.setItem('currentUser', JSON.stringify(response.data.user))
                 setCurrentUser(response.data.user)
                 setIsAuthorized(true)
                 hist.replace('/')
