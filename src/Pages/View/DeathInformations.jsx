@@ -57,7 +57,7 @@ export default function DeathInformations({ userId, user }) {
                             :
                             <>
                                 Not Dead
-                                <div className='btn btn-info' onClick={fetchDeathInfo}>chec</div>
+                                {/* <div className='btn btn-info' onClick={fetchDeathInfo}>chec</div> */}
 
                             </>
                 }
