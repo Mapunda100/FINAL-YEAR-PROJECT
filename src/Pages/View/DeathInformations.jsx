@@ -29,10 +29,10 @@ export default function DeathInformations({ userId, user }) {
             <div className="card-header h3 d-flex justify-content-between">
                 <span>Death Information</span>
                 {deathInfo.data &&
-                    <>
+                    <div>
                         <button className="btn-danger btn btn-sm" onClick={() => setShow(true)}>Death Certificate</button>
                         <DeathCertificate setShow={setShow} show={show} user={{ ...user, deathInfo: deathInfo.data }} />
-                    </>
+                    </div>
                 }
             </div>
             <div className="card-body">

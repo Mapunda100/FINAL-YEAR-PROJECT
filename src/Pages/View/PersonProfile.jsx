@@ -48,12 +48,7 @@ export default function PersonProfile(props) {
                     </div>
                 </div>
                 <div className="col-4">
-                    <div className="card">
-                        <div className="card-header h3">Marriage Information</div>
-                        <div className="card-body">
-                            <MarriageInformations user={person} />
-                        </div>
-                    </div>
+                    <MarriageInformations user={person} />
                 </div>
                 <div className="col-4">
                     <DeathInformations user={person} userId={person._id} />
