@@ -6,6 +6,7 @@ import BirthCertificate from './BirthCertificate'
 
 export default function PersonProfile(props) {
     const [person] = useState(props.location.state)
+    console.log(person)
 
 
     return (
@@ -55,12 +56,7 @@ export default function PersonProfile(props) {
                     </div>
                 </div>
                 <div className="col-4">
-                    <div className="card">
-                        <div className="card-header h3">Death Information</div>
-                        <div className="card-body">
-                            <DeathInformations userId={person._id} />
-                        </div>
-                    </div>
+                    <DeathInformations user={person} userId={person._id} />
                 </div>
             </div>
         </div>
