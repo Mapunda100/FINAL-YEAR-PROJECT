@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
-export default function CreateUser() {
+export default function CreateUser({ fetchUsers }) {
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState({ status: '', text: '' })
 
@@ -16,17 +16,24 @@ export default function CreateUser() {
         setLoading(true)
         setMessage({ status: '', text: '' })
 
-        axios.post('/register', { name: `${fname} ${lname}`, email, phone, role_id: role, password: lname.toUpperCase() })
+        axios.post('/register', {
+            firstname: fname, lastname: lname, email, phonenumber: phone, role: role, password: lname.toUpperCase()
+        })
             .then(response => {
                 console.log(response)
                 setMessage({ status: 'success', text: 'User created Successfully' })
+                setFName('')
+                setLName('')
+                setEmail('')
+                setPhone('')
+                setRole('')
+                fetchUsers()
             }).catch(error => {
-                // console.log(error)
                 console.log(error.response)
                 if (error.message === 'Network Error') {
                     setMessage({ status: 'warning', text: error.message })
                 }
-                // setMessage({ status: 'warning', text: Array.from(error.response.data.errors).toString() })
+                setMessage({ status: 'warning', text: error.response.data })
             }).finally(() => {
                 setLoading(false)
             })
@@ -44,39 +51,37 @@ export default function CreateUser() {
                     </div>
                     <form onSubmit={createUser}>
                         <div class="modal-body">
-                            <form>
-                                <div class="form-group p-0 m-0">
-                                    <label for="recipient-name" class="col-form-label p-0 m-0">Full Name:</label>
-                                    <input type="text" class="form-control" value={fname} onChange={(e) => setFName(e.target.value)} required />
+                            <div class="form-group p-0 m-0">
+                                <label for="recipient-name" class="col-form-label p-0 m-0">Full Name:</label>
+                                <input type="text" class="form-control" value={fname} onChange={(e) => setFName(e.target.value)} required />
+                            </div>
+                            <div class="form-group p-0 m-0">
+                                <label for="recipient-name" class="col-form-label p-0 m-0">Full Name:</label>
+                                <input type="text" class="form-control" value={lname} onChange={(e) => setLName(e.target.value)} required />
+                            </div>
+                            <div class="form-group p-0 m-0">
+                                <label for="recipient-name" class="col-form-label p-0 m-0">Email:</label>
+                                <input type="email" class="form-control" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                            </div>
+                            <div class="form-group p-0 m-0">
+                                <label for="recipient-name" class="col-form-label p-0 m-0">Phone:</label>
+                                <input type="number" class="form-control" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                            </div>
+                            <div class="form-group p-0 m-0">
+                                <label for="recipient-name" class="col-form-label p-0 m-0">Role:</label>
+                                {/* <input type="text" class="form-control" value={role} onChange={(e) => setRole(e.target.value)} required /> */}
+                                <select class="custom-select" required onChange={(e) => setRole(e.target.value)}>
+                                    <option >Select Role</option>
+                                    <option value={'1'}>Registrar</option>
+                                    <option value={'2'}>Admin</option>
+                                    <option value={'3'}>Super Admin</option>
+                                </select>
+                            </div>
+                            {message.text &&
+                                <div class={`alert alert-${message.status} mt-3`} role="alert">
+                                    {message.text}
                                 </div>
-                                <div class="form-group p-0 m-0">
-                                    <label for="recipient-name" class="col-form-label p-0 m-0">Full Name:</label>
-                                    <input type="text" class="form-control" value={lname} onChange={(e) => setLName(e.target.value)} required />
-                                </div>
-                                <div class="form-group p-0 m-0">
-                                    <label for="recipient-name" class="col-form-label p-0 m-0">Email:</label>
-                                    <input type="email" class="form-control" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                                </div>
-                                <div class="form-group p-0 m-0">
-                                    <label for="recipient-name" class="col-form-label p-0 m-0">Phone:</label>
-                                    <input type="number" class="form-control" value={phone} onChange={(e) => setPhone(e.target.value)} required />
-                                </div>
-                                <div class="form-group p-0 m-0">
-                                    <label for="recipient-name" class="col-form-label p-0 m-0">Role:</label>
-                                    {/* <input type="text" class="form-control" value={role} onChange={(e) => setRole(e.target.value)} required /> */}
-                                    <select class="custom-select" required onChange={(e) => setRole(e.target.value)}>
-                                        <option >Select Role</option>
-                                        <option value={1}>Requester</option>
-                                        <option value={2}>Provider</option>
-                                        <option value={3}>Admin</option>
-                                    </select>
-                                </div>
-                                {message.text &&
-                                    <div class={`alert alert-${message.status} mt-3`} role="alert">
-                                        {message.text}
-                                    </div>
-                                }
-                            </form>
+                            }
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" disabled={loading} data-dismiss="modal">Close</button>
