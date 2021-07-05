@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 // import menu, { misc as op } from './index'
-import menu, { misc } from '../routes'
+import menu from '../routes'
 import logo from '../../assets/images/blue.png'
 import logos from '../../assets/images/Logo.png'
 import { AuthContext } from '../../Context/AuthContext'
@@ -44,15 +44,15 @@ export default function Sidebar(props) {
                             {/* <!-- Divider --> */}
                             <hr className="my-3" />
                             {/* <!-- Heading --> */}
-                            <h6 className="navbar-heading p-0 text-muted">
+                            {/* <h6 className="navbar-heading p-0 text-muted">
                                 <span className="docs-normal">Miscalculaneous</span>
-                            </h6>
+                            </h6> */}
                             {/* <!-- Navigation --> */}
-                            <ul className="navbar-nav">
+                            {/* <ul className="navbar-nav">
                                 {misc.map((item, index) => {
                                     return (<SidebarComp item={item} key={index} />)
                                 })}
-                            </ul>
+                            </ul> */}
                         </div>
                     </div>
                 </div>
