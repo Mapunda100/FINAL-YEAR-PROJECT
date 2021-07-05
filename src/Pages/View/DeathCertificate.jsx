@@ -35,16 +35,6 @@ export default function DeathCertificate({ user, show, setShow }) {
                                     <th className='text-sm'><span>Cause of Death</span></th>
                                     <th className='text-sm'><span>Gender</span></th>
                                     <th className='text-sm'><span>Place of Death</span></th>
-
-                                    {/*                                     
-                                    <th className='text-sm'><span>Date of Birth</span></th>
-                                    <th className='text-sm'><span>Sex</span></th>
-                                    <th className='text-sm'><span>Father's Name</span></th>
-                                    <th className='text-sm'><span>Father's Nationality</span></th>
-                                    <th className='text-sm'><span>Mother's name</span></th>
-                                    <th className='text-sm'><span>Mother's Nationality</span></th>
-                                    <th className='text-sm'><span>Date of Registration</span></th> */}
-                                    {/* <th className='text-sm'><span>Signature of Registering officer</span></th> */}
                                 </tr>
                                 <tr class="subhead">
                                     <th>&nbsp;</th>
