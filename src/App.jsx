@@ -11,7 +11,7 @@ import ProtectedRoutes from './Pages';
 import { openRoutes } from './components/routes';
 
 // axios config
-// axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+axios.defaults.headers.common['Authorization'] = `Bearer ${sessionStorage.getItem('token')}`;
 // axios.defaults.baseURL = process.env.NODE_ENV === 'development' ? 'localhost:3000' : 'https://fast-taiga-60933.herokuapp.com/api/'
 axios.defaults.baseURL = 'http://localhost:8200'
 axios.defaults.timeout = 60000
