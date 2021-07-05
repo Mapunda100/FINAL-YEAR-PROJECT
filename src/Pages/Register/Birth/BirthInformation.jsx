@@ -5,8 +5,8 @@ import { RegisterPersonContext } from '../../../Context/RegisterPersonContext';
 
 export default function BirthInformation() {
     const hist = useHistory()
-    const { state, dispatch } = React.useContext(RegisterPersonContext)
-    let setPersonDetails = personDetails => dispatch({ type: 'personDetails', payload: personDetails })
+    const { state } = React.useContext(RegisterPersonContext)
+    // let setPersonDetails = personDetails => dispatch({ type: 'personDetails', payload: personDetails })
     const [message, setMessage] = useState({ status: '', body: '' })
 
     const [loading, setLoading] = useState(false)
@@ -47,7 +47,7 @@ export default function BirthInformation() {
                 setMessage({ status: 'success', body: 'User Successfully Created' })
 
                 setTimeout(() => {
-                hist.go(0)
+                    hist.go(0)
 
                 }, 2000);
             })
@@ -131,7 +131,7 @@ export default function BirthInformation() {
                             </div>
                             {message.status &&
                                 <div className={`alert alert-${message.status} m-2`}>
-                                    {message.body} 
+                                    {message.body}
                                 </div>
                             }
                         </div>

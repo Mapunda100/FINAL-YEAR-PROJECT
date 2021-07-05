@@ -1,19 +1,19 @@
 import axios from 'axios'
 import { Modal } from 'react-bootstrap';
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import SubRegisterParent from './SubRegisterParent';
 import { RegisterPersonContext } from '../../../Context/RegisterPersonContext';
 import FoundParentDetails from './FoundParentDetails';
 // import SubRegisterParent from './SubRegisterParent'
 
 export default function ParentInformation({ setPersonalInformations, setFormNumber, personalInformations }) {
-    const { state, dispatch } = React.useContext(RegisterPersonContext)
-    let setPersonDetails = personDetails => dispatch({ type: 'personDetails', payload: personDetails })
+    const { state } = React.useContext(RegisterPersonContext)
+    // let setPersonDetails = personDetails => dispatch({ type: 'personDetails', payload: personDetails })
 
     // console.log(state)
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    // const handleShow = () => setShow(true);
 
     // SEARCHED PARENTS MODAL CONTROLLERS
     const [showParentsModal, setShowParentsModal] = useState(false);
@@ -26,9 +26,9 @@ export default function ParentInformation({ setPersonalInformations, setFormNumb
     // const [motherExists, setMotherExists] = useState(true)
     // const [fatherExists, setFatherExists] = useState(true)
 
-    const mfirstnameRef = useRef()
-    const mmiddlenameRef = useRef()
-    const mlastnameRef = useRef()
+    // const mfirstnameRef = useRef()
+    // const mmiddlenameRef = useRef()
+    // const mlastnameRef = useRef()
 
 
     const [fatherFname, setFatherFName] = useState(state.personDetails.fatherInfo && state.personDetails.fatherInfo.fname)
@@ -128,7 +128,7 @@ export default function ParentInformation({ setPersonalInformations, setFormNumb
                                         <label for="inputEmail"> First Name:</label>
                                         <input
                                             // ref={mfirstnameRef}
-                                            value={state.personDetails.motherInfo && state.personDetails.motherInfo.fname || motherFname}
+                                            value={state.personDetails.motherInfo && (state.personDetails.motherInfo.fname || motherFname)}
                                             onChange={(e) => setMotherFName(e.target.value)}
                                             type="text"
                                             class="form-control" />

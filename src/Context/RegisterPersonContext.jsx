@@ -7,6 +7,7 @@ let reducer = (state, action) => {
     switch (action.type) {
         case 'personDetails':
             return { ...state, personDetails: state.personDetails = action.payload }
+        default: return
     }
 }
 

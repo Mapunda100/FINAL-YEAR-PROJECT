@@ -1,9 +1,9 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import ReactApexChart from 'react-apexcharts'
 
 export default function MaleVSFemale({ userCounts }) {
-    const [maleVSFemales, setMaleVSFemales] = useState({ loading: false, data: {} })
+    // const [maleVSFemales, setMaleVSFemales] = useState({ loading: false, data: {} })
     const state = {
         series: [{
             name: 'Total Registered',
@@ -43,7 +43,7 @@ export default function MaleVSFemale({ userCounts }) {
     useEffect(() => {
         fetchMaleVSFemales()
         return () => {
-            setMaleVSFemales()
+            // setMaleVSFemales()
         }
     }, [])
     return (

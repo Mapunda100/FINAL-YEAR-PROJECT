@@ -10,6 +10,8 @@ let reducer = (state, action) => {
             return { ...state, brideDetails: state.brideDetails = action.payload }
         case 'groomDetails':
             return { ...state, groomDetails: state.groomDetails = action.payload }
+        default:
+            return
     }
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import MaterialTable, { MTableToolbar } from 'material-table';
+import MaterialTable from 'material-table';
 import { Modal } from 'react-bootstrap';
 import { RegisterPersonContext } from '../../../Context/RegisterPersonContext';
 import SubRegisterParent from './SubRegisterParent';

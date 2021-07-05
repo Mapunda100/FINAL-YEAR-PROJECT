@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import InfoCard from '../../components/Gadgets/InfoCard'
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
 import axios from 'axios';
 import MaleVSFemale from './Graphs/maleVSFemale'
 import YouthVSElders from './Graphs/YouthVSElders'
 import DeathsVSBirths from './Graphs/DeathsVSBirths'
 
 export default function Dashboard() {
-    const hist = useHistory()
+    // const hist = useHistory()
     const [userCounts, setUserCounts] = useState({ loading: true, data: { men: 0, female: 0, total: 0 } })
 
     async function fetchUserCounts() {
