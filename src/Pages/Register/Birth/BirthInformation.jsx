@@ -47,14 +47,15 @@ export default function BirthInformation() {
                 setMessage({ status: 'success', body: 'User Successfully Created' })
 
                 setTimeout(() => {
-                    hist.push('/register/birth')
+                hist.go(0)
+
                 }, 2000);
             })
             .catch(err => {
-                setTimeout(() => {
-                    hist.push('/register/birth')
-                    console.log('object')
-                }, 2000);
+                // setTimeout(() => {
+                //     hist.push('/register/birth')
+                //     console.log('object')
+                // }, 2000);
                 setLoading(false)
                 setMessage({ status: 'danger', body: err.message })
                 console.log(err)
@@ -130,7 +131,7 @@ export default function BirthInformation() {
                             </div>
                             {message.status &&
                                 <div className={`alert alert-${message.status} m-2`}>
-                                    {message.body}
+                                    {message.body} 
                                 </div>
                             }
                         </div>

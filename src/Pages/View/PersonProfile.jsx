@@ -3,11 +3,27 @@ import moment from 'moment'
 import MarriageInformations from './MarriageInformations'
 import DeathInformations from './DeathInformations'
 import BirthCertificate from './BirthCertificate'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom'
+
 
 export default function PersonProfile(props) {
     const [person] = useState(props.location.state)
+    const hist = useHistory()
 
 
+    function deleteuser(e){
+        e.preventDefault()
+
+        axios.delete(`person/${person._id}`)
+       .then(res=>{
+           console.log('User successfully deleted')
+           hist.goBack()
+       })
+       .catch(err=>{
+           console.log(err)
+       })
+    }
     return (
         <div className="container-fluid mt-3">
             <div className="card">
@@ -15,7 +31,7 @@ export default function PersonProfile(props) {
                     {person.finishedRegistration &&
                         <BirthCertificate user={person} />
                     }
-                    <button className="btn btn-danger btn-sm ml-2">Delete User</button>
+                    <button className="btn btn-danger btn-sm ml-2" onClick={deleteuser}>Delete User</button>
                 </div>
             </div>
             <div className="row">

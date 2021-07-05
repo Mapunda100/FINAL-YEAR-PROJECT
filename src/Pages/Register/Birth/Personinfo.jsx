@@ -91,7 +91,7 @@ export default function PersonalInformation({ setFormNumber, setPersonalInformat
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputPassword4">Phone Number:</label>
-                                            <input value={phonenumber} onChange={(e) => setPhoneNumber(e.target.value)} type="text" class="form-control" id="inputPassword4" />
+                                            <input value={phonenumber} onChange={(e) => setPhoneNumber(e.target.value)} type="number" class="form-control" id="inputPassword4" />
                                         </div>
                                     </div>
 
