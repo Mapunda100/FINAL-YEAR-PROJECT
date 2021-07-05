@@ -3,6 +3,7 @@ import moment from 'moment'
 import MarriageInformations from './MarriageInformations'
 import DeathInformations from './DeathInformations'
 import BirthCertificate from './BirthCertificate'
+import ShowForRole from '../../components/ShowForRole'
 
 export default function PersonProfile(props) {
     const [person] = useState(props.location.state)
@@ -16,7 +17,9 @@ export default function PersonProfile(props) {
                     {person.finishedRegistration &&
                         <BirthCertificate user={person} />
                     }
-                    <button className="btn btn-danger btn-sm ml-2">Delete User</button>
+                    <ShowForRole allowedRoles={['3', '2']} >
+                        <button className="btn btn-danger btn-sm ml-2">Delete User</button>
+                    </ShowForRole>
                 </div>
             </div>
             <div className="row">
