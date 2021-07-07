@@ -69,8 +69,8 @@ export default function PatnerInfo() {
                                         <>
                                             <p><span className='font-weight-bold'>Birth Date:</span>{state.groomDetails.birthInfo.dateofbirth} </p>
                                             <p><span className='font-weight-bold'>Age:</span> {moment(Date.now()).diff(state.groomDetails.birthInfo.dateofbirth, 'years')}</p>
-                                            <p><span className='font-weight-bold'>Father Name:</span> {`${state.groomDetails.fatherid.firstname} ${state.groomDetails.fatherid.middlename} ${state.groomDetails.fatherid.lastname}`}</p>
-                                            <p><span className='font-weight-bold'>Mother Name:</span>  {`${state.groomDetails.motherid.firstname} ${state.groomDetails.motherid.middlename} ${state.groomDetails.motherid.lastname}`}</p>
+                                            <p><span className='font-weight-bold'>Father Name:</span> {state.brideDetails.fatherid ? `${state.groomDetails.fatherid.firstname} ${state.groomDetails.fatherid.middlename} ${state.groomDetails.fatherid.lastname}` : 'Not Registered'}</p>
+                                            <p><span className='font-weight-bold'>Mother Name:</span>  {state.brideDetails.motherid ? `${state.groomDetails.motherid.firstname} ${state.groomDetails.motherid.middlename} ${state.groomDetails.motherid.lastname}` : 'Not Registered'}</p>
                                             <p>
                                                 <div class="form-group row">
                                                     <label for="inputEmail3" class="col-sm-2 col-form-label">
@@ -113,8 +113,8 @@ export default function PatnerInfo() {
                                         <>
                                             <p><span className='font-weight-bold'>Birth Date:</span>{state.brideDetails.birthInfo.dateofbirth} </p>
                                             <p><span className='font-weight-bold'>Age:</span> {moment(Date.now()).diff(state.brideDetails.birthInfo.dateofbirth, 'years')}</p>
-                                            <p><span className='font-weight-bold'>Father Name:</span> {`${state.brideDetails.fatherid.firstname} ${state.brideDetails.fatherid.middlename} ${state.brideDetails.fatherid.lastname}`}</p>
-                                            <p><span className='font-weight-bold'>Mother Name:</span>  {`${state.brideDetails.motherid.firstname} ${state.brideDetails.motherid.middlename} ${state.brideDetails.motherid.lastname}`}</p>
+                                            <p><span className='font-weight-bold'>Father Name:</span> {state.brideDetails.fatherid ? `${state.brideDetails.fatherid.firstname} ${state.brideDetails.fatherid.middlename} ${state.brideDetails.fatherid.lastname}` : 'Not Registered'}</p>
+                                            <p><span className='font-weight-bold'>Mother Name:</span>  {state.brideDetails.motherid ? `${state.brideDetails.motherid.firstname} ${state.brideDetails.motherid.middlename} ${state.brideDetails.motherid.lastname}` : 'Not Registered'}</p>
                                             <p>
                                                 <div class="form-group row">
                                                     <label for="inputEmail3" class="col-sm-2 col-form-label">

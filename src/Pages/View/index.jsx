@@ -4,7 +4,7 @@ import axios from 'axios';
 import InfoCard from '../../components/Gadgets/InfoCard'
 import SearchPerson from './searchPerson';
 import { useHistory } from 'react-router';
-
+import { Nav } from 'react-bootstrap'
 
 export default function ViewPeople() {
     const hist = useHistory()
@@ -72,9 +72,9 @@ export default function ViewPeople() {
                 <div className="container-fluid">
                     <div className="header-body">
                         <div className="row pt-5">
-                            <InfoCard title='Total Men' text={userCounts.data.men} icon='delivery-fast' />
-                            <InfoCard title='Total Women' text={userCounts.data.female} icon='delivery-fast' />
-                            <InfoCard title='Total Registered Users' text={userCounts.data.total} icon='users-83' color='green' />
+                            <InfoCard title='Total Men' text={userCounts.data.men} icon='circle-08' />
+                            <InfoCard title='Total Women' text={userCounts.data.female} icon='favourite-28' color='yellow' />
+                            <InfoCard title='Total Registered Users' text={userCounts.data.total} icon='delivery-fast' color='green' />
                         </div>
                     </div>
                 </div>

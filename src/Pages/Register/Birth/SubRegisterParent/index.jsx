@@ -7,6 +7,8 @@ export default function SubRegisterParent({ handleClose, setPersonalInformations
     let setPersonDetails = personDetails => dispatch({ type: 'personDetails', payload: personDetails })
 
     const [loading, setLoading] = useState(false)
+    const [doneRegistering, setDoneRegistering] = useState(false)
+
 
     const firstnameRef = useRef()
     const middlenameRef = useRef()
@@ -67,13 +69,18 @@ export default function SubRegisterParent({ handleClose, setPersonalInformations
                 // personalInformations.motherid = res.data._id
             }
             setLoading(false)
-
+            setDoneRegistering(true)
             // setPersonalInformations(personalInformations)
             // handleClose()
         }).catch(err => {
             console.log(err)
             setLoading(false)
         })
+    }
+
+    function closeModal() {
+        setDoneRegistering(false)
+        handleClose()
     }
 
     return (
@@ -138,12 +145,14 @@ export default function SubRegisterParent({ handleClose, setPersonalInformations
                         <input ref={streetRef} type="text" class="form-control" id="inputPassword4" />
                     </div>
                 </div>
-
+                {doneRegistering &&
+                    <div className="alert alert-info">Parent successfully registered <button className='btn btn-neutral btn-sm' onClick={closeModal}>Finish Registration</button></div>
+                }
                 <div className="modal-footer">
                     <button className='btn btn-neutral'
                         onClick={() => {
                             setRegisterNewParent(false)
-                            handleClose()
+                            closeModal()
                         }}
                     >CANCEL</button>
                     <button className='btn btn-default' disabled={loading} onClick={saveParentInformations}> {loading && <span className='spinner-border spinner-border-sm'></span>} SUBMIT</button>

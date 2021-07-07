@@ -1,5 +1,5 @@
 import AuthCheck from "../Pages/Authentication/AuthCheck";
-import Contact from "../Pages/Contact";
+// import Contact from "../Pages/Contact";
 // import Login from "../Pages/Authentication/Login";
 // import Register from "../Pages/Authentication/Register";
 import Dashboard from "../Pages/Dasboard";
@@ -19,6 +19,8 @@ import PersonProfile from "../Pages/View/PersonProfile";
 // import NewRequest from "../Pages/Requests/NewRequest";
 // import RequestProfile from "../Pages/Requests/RequestProfile";
 import Users from "../Pages/Users";
+import ViewMarried from "../Pages/View/ViewMarried";
+import ViewDeaths from "../Pages/View/ViewDeaths";
 
 const routes = [
     {
@@ -35,7 +37,7 @@ const routes = [
         name: 'Register',
         component: Register,
         url: '/register',
-        icon: 'circle-08',
+        icon: 'world',
         comments: 'Register endpoint',
         color: 'red',
         sidebar: true,
@@ -77,9 +79,29 @@ const routes = [
         name: 'View Registered',
         component: ViewPersons,
         url: '/view/registered',
-        icon: 'circle-08',
+        icon: 'book-bookmark',
+        comments: 'View registered endpoint',
+        color: 'blue',
+        sidebar: true,
+        roles: ['3', '2', '1']
+    },
+    {
+        name: 'View Married',
+        component: ViewMarried,
+        url: '/view/married',
+        icon: 'tie-bow',
         comments: 'View registered endpoint',
         color: 'green',
+        sidebar: true,
+        roles: ['3', '2', '1']
+    },
+    {
+        name: 'View Deaths',
+        component: ViewDeaths,
+        url: '/view/deaths',
+        icon: 'diamond',
+        comments: 'View registered endpoint',
+        color: 'red',
         sidebar: true,
         roles: ['3', '2', '1']
     },
@@ -101,16 +123,16 @@ const routes = [
         sidebar: true,
         roles: ['3', '2', '1']
     },
-    {
-        name: 'Contact',
-        component: Contact,
-        url: '/register/contact',
-        icon: 'circle-08',
-        comments: 'View registered endpoint',
-        color: 'black',
-        sidebar: true,
-        roles: ['3', '2', '1']
-    },
+    // {
+    //     name: 'Contact',
+    //     component: Contact,
+    //     url: '/register/contact',
+    //     icon: 'circle-08',
+    //     comments: 'View registered endpoint',
+    //     color: 'black',
+    //     sidebar: true,
+    //     roles: ['3', '2', '1']
+    // },
 
     // {
     //     name: 'Register Birth',
